@@ -1,13 +1,13 @@
-import Footer from './Footer/Footer';
 import Header from './Header/Header';
-import Section from './Section/Section';
+import Message from './Message/Message';
 
 const App = () => {
   return (
     <div>
       <Header />
-      <Section />
-      <Footer />
+      <Message text='Куплю праску!' author='Олена' />
+      <Message text='Продам телевізор' author='Макс' />
+      <Message text='Куплю шапку' author='Ігор' />
     </div>
   );
 };
