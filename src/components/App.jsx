@@ -4,6 +4,7 @@ import List from './List/List';
 import Message from './Message/Message';
 import Modal from './Modal/Modal';
 import '../index.css';
+import 'modern-normalize';
 const App = () => {
   const isOnline = false;
   const isLoading = false;
