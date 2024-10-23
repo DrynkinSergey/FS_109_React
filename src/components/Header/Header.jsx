@@ -1,9 +1,11 @@
+import s from './Header.module.css';
 const Header = () => {
   return (
     <header className='header'>
       <div>Logo</div>
-      <p className='title'>Hello</p>
-      <nav>
+      <p className={s.title}>Hello</p>
+      <p className={s.title}>World</p>
+      <nav className={s.wrapper}>
         <ul className='nav'>
           <li>Home</li>
           <li>About</li>
