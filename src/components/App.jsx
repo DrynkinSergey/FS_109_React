@@ -1,11 +1,16 @@
+import Button from './Button/Button';
 import Header from './Header/Header';
 import List from './List/List';
 import Message from './Message/Message';
+import Modal from './Modal/Modal';
 
 const App = () => {
   const isOnline = false;
   const isLoading = false;
   const age = 44;
+  // console.log(`Hello world, my age is ${age}`);
+  console.log(`Hello world, my age is ${age}`);
+
   const filmsData = [
     {
       id: '1',
@@ -48,9 +53,33 @@ const App = () => {
       {age > 18 ? <h2>Ти диви який вимахав!</h2> : <h2>Йди їж кашу</h2>}
       <List title='My films' data={filmsData} />
       <List title='Goods' data={goodsData} />
-      <Message text='Куплю праску!' author='Олена' />
-      <Message text='Продам телевізор' author='Макс' />
-      <Message text='Куплю шапку' author='Ігор' />
+      <section>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet, voluptatem veritatis! Minus fugit sit itaque, cumque exercitationem sequi.
+        Dolorum maxime rem possimus sapiente harum exercitationem delectus voluptate consectetur aut nam.
+      </section>
+
+      <Modal title='Children how it works'>
+        <h2>
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non id eaque assumenda cum ex asperiores ipsum ullam, in magni, numquam, deserunt
+          eum quas inventore exercitationem animi consectetur. Eos, amet quod.
+        </h2>
+        <button>CLICK</button>
+      </Modal>
+
+      <Modal title='Login'>
+        <input />
+        <input />
+        <button>CLICK</button>
+      </Modal>
+
+      <Modal title='Messages box'>
+        <Message classn text='Куплю праску!' author='Олена' />
+        <Message text='Продам телевізор' author='Макс' />
+        <Message text='Куплю шапку' author='Ігор' />
+      </Modal>
+
+      <Button>Click</Button>
+      <Button>🔥 Click</Button>
     </div>
   );
 };
