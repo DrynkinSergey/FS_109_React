@@ -3,7 +3,7 @@ import Header from './Header/Header';
 import List from './List/List';
 import Message from './Message/Message';
 import Modal from './Modal/Modal';
-
+import '../index.css';
 const App = () => {
   const isOnline = false;
   const isLoading = false;
@@ -50,7 +50,7 @@ const App = () => {
       <Header />
       {isOnline && <h1>Welcome back!</h1>}
       {isLoading && <h2>Loading...</h2>}
-      {age > 18 ? <h2>Ти диви який вимахав!</h2> : <h2>Йди їж кашу</h2>}
+      {age > 18 ? <h2 className='title'>Ти диви який вимахав!</h2> : <h2>Йди їж кашу</h2>}
       <List title='My films' data={filmsData} />
       <List title='Goods' data={goodsData} />
       <section>

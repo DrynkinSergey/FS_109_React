@@ -1,9 +1,10 @@
 const Header = () => {
   return (
-    <header style={{ display: 'flex', backgroundColor: 'teal', color: 'white', justifyContent: 'space-between' }}>
+    <header className='header'>
       <div>Logo</div>
+      <p className='title'>Hello</p>
       <nav>
-        <ul style={{ display: 'flex', listStyle: 'none', gap: '10px' }}>
+        <ul className='nav'>
           <li>Home</li>
           <li>About</li>
           <li>Profile</li>
