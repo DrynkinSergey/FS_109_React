@@ -1,8 +1,12 @@
 .title{
-  color:var(--color-green);
+  color:white;
+}
+.second_class{
+  font-weight: bold;
+  font-style: italic;
 }
 .form_title{
-  
+
 }
 .wrapper{
 
