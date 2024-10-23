@@ -59,10 +59,6 @@ const App = () => {
       </section>
 
       <Modal title='Children how it works'>
-        <h2>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Non id eaque assumenda cum ex asperiores ipsum ullam, in magni, numquam, deserunt
-          eum quas inventore exercitationem animi consectetur. Eos, amet quod.
-        </h2>
         <button>CLICK</button>
       </Modal>
 
