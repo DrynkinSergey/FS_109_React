@@ -1,10 +1,13 @@
 import Button from './Button/Button';
-import Header from './Header/Header';
-import List from './List/List';
-import Message from './Message/Message';
 import Modal from './Modal/Modal';
-import '../index.css';
+import Header from './Header/Header';
 import 'modern-normalize';
+import Message from './Message/Message';
+import animals from './../assets/animals.webp';
+import '../index.css';
+import List from './List/List';
+import Profile from './Profile/Profile';
+import profileData from './../assets/user.json';
 const App = () => {
   const isOnline = false;
   const isLoading = false;
@@ -72,7 +75,7 @@ const App = () => {
         <input />
         <button>CLICK</button>
       </Modal>
-
+      <img src={animals} />
       <Modal title='Messages box'>
         <Message classn text='Куплю праску!' author='Олена' />
         <Message text='Продам телевізор' author='Макс' />
@@ -81,6 +84,7 @@ const App = () => {
 
       <Button>Click</Button>
       <Button>🔥 Click</Button>
+      <Profile user={profileData} />
     </div>
   );
 };

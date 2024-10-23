@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import s from './Header.module.css';
+import s from './Header.module.scss';
 const Header = () => {
   return (
     <header className='header'>
