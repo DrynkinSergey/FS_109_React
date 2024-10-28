@@ -1,8 +1,15 @@
-const Modal = props => {
+import s from './Modal.module.css';
+const Modal = ({ children, title = 'Default modal' }) => {
   return (
-    <div>
-      <h2>{props.title}</h2>
-      {props.children}
+    <div className={s.wrapper}>
+      <div className={s.content}>
+        <>
+          <h1>{title}</h1>
+          <hr />
+        </>
+        <button className={s.closeBtn}>×</button>
+        {children}
+      </div>
     </div>
   );
 };
