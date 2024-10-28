@@ -2,7 +2,7 @@
   display: grid;
 	place-content: center;
 	height: 100vh;
-	transition: background-color 1.5s linear;
+	transition: background-color .5s linear;
 	
 }
 .pallette{
