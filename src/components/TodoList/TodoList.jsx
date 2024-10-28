@@ -9,9 +9,10 @@ export const TodoList = () => {
   const handleDeleteTodo = id => {
     setTodos(prev => prev.filter(item => item.id !== id));
   };
+
   const handleAddTodo = () => {
     const newTodo = {
-      id: crypto.randomUUID(),
+      id: nanoid(4),
       todo: newValue,
       completed: false,
     };
