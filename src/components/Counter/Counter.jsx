@@ -37,6 +37,7 @@ export const Counter = () => {
       <div className={s.wrapper}>
         <h1>{counter}</h1>
         <input
+          value={step}
           onChange={e => {
             setStep(+e.target.value);
           }}
