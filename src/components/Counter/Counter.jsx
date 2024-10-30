@@ -1,23 +1,12 @@
 import { useState } from 'react';
 import s from './Counter.module.css';
 
-// RULES
-// 1. Тільки в функціональному компоненті
-// 2. Тільки в КОМПОНЕНТІ (З ВЕЛИКОЇ ЛІТЕРИ НАША ФУНКЦІЯ)
-// 3. Без умов, без циклів, не в іншій функції
-// 4. Xуки починаються з ключового слова 'use'
-
 export const Counter = () => {
   const [counter, setCounter] = useState(0);
   const [step, setStep] = useState(111);
 
   const handlePlusClick = () => {
-    // setCounter(0 + 1);
-    // setCounter(0 + 1);
-    // setCounter(0 + 1);
-
     setCounter(prev => prev + step);
-    console.log(counter);
   };
   const handleMinusClick = () => {
     setCounter(prev => prev - step);
