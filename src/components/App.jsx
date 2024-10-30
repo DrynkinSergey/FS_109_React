@@ -3,6 +3,7 @@ import { ColorPicker } from './ColorPicker/ColorPicker';
 import { Counter } from './Counter/Counter';
 import Modal from './Modal/Modal';
 import { TodoList } from './TodoList/TodoList';
+import Vote from './Vote/Vote';
 
 const App = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,7 +20,8 @@ const App = () => {
       )}
       {/* <Counter /> */}
       {/* <ColorPicker /> */}
-      <TodoList />
+      {/* <TodoList /> */}
+      <Vote />
     </div>
   );
 };
