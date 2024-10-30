@@ -17,9 +17,9 @@ const App = () => {
           eaque, ipsum voluptates qui deserunt vero laboriosam aperiam? Atque, quo fuga!
         </Modal>
       )}
-      <Counter />
+      {/* <Counter /> */}
       {/* <ColorPicker /> */}
-      {/* <TodoList /> */}
+      <TodoList />
     </div>
   );
 };
