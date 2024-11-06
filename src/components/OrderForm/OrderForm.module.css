@@ -5,6 +5,11 @@
   align-items: center;
   
 }
+.error{
+  color:red;
+  font-size: 12px;
+
+}
 .form{
   display: flex;
   flex-direction: column;
@@ -22,6 +27,7 @@
 
 }
 .label{
+  gap:5px;
   display: flex;
   flex-direction: column;
   & span {
