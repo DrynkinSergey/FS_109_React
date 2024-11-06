@@ -18,12 +18,14 @@ const OrderForm = () => {
     tel: Yup.string().min(9).required("Поле обов'язкове"),
     desire: Yup.string().min(3).max(120),
     petType: Yup.string().oneOf(['cat', 'dog']),
+    range: Yup.number().min(10).max(20),
   });
 
   const initialValues = {
     username: '',
     tel: '',
     email: '',
+    range: 0,
     petType: '',
     agree: false,
     gender: 'male',
@@ -48,6 +50,11 @@ const OrderForm = () => {
             <span>Емейл</span>
             <Field className={s.input} placeholder='Введіть Емейл:' name='email' />
             <ErrorMessage name='email' component='span' className={s.error} />
+          </label>
+          <label className={s.label}>
+            <span>Вік</span>
+            <Field type='range' className={s.input} name='range' />
+            <ErrorMessage name='range' component='span' className={s.error} />
           </label>
 
           <label className={s.label}>
