@@ -1,5 +1,4 @@
-import Form from './Forms/Form';
-import UseIDExample from './UseIDExample/UseIDExample';
+import OrderForm from './OrderForm/OrderForm';
 
 const App = () => {
   const register = data => {
@@ -14,9 +13,8 @@ const App = () => {
   };
   return (
     <div>
-      <h1>FORMS</h1>
-      <Form register={register} />
-      <UseIDExample />
+      <h1>Formik</h1>
+      <OrderForm />
     </div>
   );
 };
