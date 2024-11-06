@@ -3,6 +3,8 @@ import s from './OrderForm.module.css';
 const OrderForm = () => {
   const handleSubmit = (values, options) => {
     console.log(values);
+    options.resetForm();
+    console.log(options);
   };
 
   const initialValues = {
@@ -31,6 +33,7 @@ const OrderForm = () => {
             <span>Емейл</span>
             <Field className={s.input} placeholder='Введіть Емейл:' name='email' />
           </label>
+
           <label className={s.label}>
             <span>Побажання</span>
             <Field as='textarea' className={s.input} placeholder='Введіть побажання:' name='desire' />
@@ -46,6 +49,7 @@ const OrderForm = () => {
               <option value='bird'>Птиця</option>
             </Field>
           </label>
+
           <div>
             <label>
               <Field type='radio' value='male' className={s.input} name='gender' />
