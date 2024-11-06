@@ -1,32 +1,66 @@
 import { Field, Form, Formik } from 'formik';
-
+import s from './OrderForm.module.css';
 const OrderForm = () => {
   const handleSubmit = (values, options) => {
     console.log(values);
   };
+
   const initialValues = {
     username: '',
     tel: '',
     email: '',
+    petType: '',
+    agree: false,
+    gender: 'male',
+    desire: '',
   };
 
   return (
-    <div>
+    <div className={s.wrapper}>
       <Formik onSubmit={handleSubmit} initialValues={initialValues}>
-        <Form>
-          <label>
+        <Form className={s.form}>
+          <label className={s.label}>
             <span>Ім'я</span>
-            <Field type='text' placeholder="Введіть ім'я:" name='username' />
+            <Field className={s.input} placeholder="Введіть ім'я:" name='username' />
           </label>
-          <label>
+          <label className={s.label}>
             <span>Телефон</span>
-            <Field type='text' placeholder='Введіть Телефон:' name='tel' />
+            <Field className={s.input} placeholder='Введіть Телефон:' name='tel' />
           </label>
-          <label>
+          <label className={s.label}>
             <span>Емейл</span>
-            <Field type='text' placeholder='Введіть Емейл:' name='email' />
+            <Field className={s.input} placeholder='Введіть Емейл:' name='email' />
           </label>
-          <button type='submit'>Замовити</button>
+          <label className={s.label}>
+            <span>Побажання</span>
+            <Field as='textarea' className={s.input} placeholder='Введіть побажання:' name='desire' />
+          </label>
+          <label className={s.label}>
+            <span>Тип улюбленця</span>
+            <Field as='select' className={s.input} name='petType'>
+              <option disabled value=''>
+                Оберіть з варіантів
+              </option>
+              <option value='cat'>Кошеня</option>
+              <option value='dog'>Цуценя</option>
+              <option value='bird'>Птиця</option>
+            </Field>
+          </label>
+          <div>
+            <label>
+              <Field type='radio' value='male' className={s.input} name='gender' />
+              <span>Xлопчик</span>
+            </label>
+            <label>
+              <Field type='radio' value='female' className={s.input} name='gender' />
+              <span>Дічинка</span>
+            </label>
+          </div>
+          <label>
+            <Field type='checkbox' className={s.input} name='agree' />
+            <span>Я приймаю всі правила платформи</span>
+          </label>
+          <button type='submit'>Обрати послугу</button>
         </Form>
       </Formik>
     </div>
