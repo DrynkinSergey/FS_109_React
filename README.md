@@ -1,19 +1,14 @@
-# Заняття 6 - Formik
+# Заняття 7 - Http
 
-- Бібліотека Formik
-- Контейнер форми `Formik` та `Form`
-  - initialValues
-  - onSubmit
-- Поле форми `Field`
-  - Атрибут `name`
-  - Початкове значення елементів
-- Відправка форми
-  - Параметри `values` та `actions`y `onSubmit`
-- Стилізація
-- Select, textarea
-- Валідація `Yup`
-  - схема Yup.object().shape({})
-  - аргументи валідатора
-  - пропс `validationSchema`
-- Компонент `ErrorMessage`
-  - пропс `component`
+- Http + Axios
+  - https://hn.algolia.com/api/v1/search
+  - Запит при монтуванні
+  - Оголошення функції у еффекті
+  - Обробка даних запиту
+  - Відображення даних
+  - Поділ відповідальності
+- Пошук через форму
+- Індикатор завантаження
+- Обробка помилок
+- Пагінація (load more)
+- Бібліотека [React Hot Toast](https://react-hot-toast.com/)
