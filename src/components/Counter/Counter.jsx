@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import s from './Counter.module.css';
 
 export const Counter = () => {
   const [counter, setCounter] = useState(0);
   const [step, setStep] = useState(1);
-  const [testValue, setTestValue] = useState('');
+  const [testValue, setTestValue] = useState(1);
 
   const handlePlusClick = () => {
     setCounter(prev => prev + step);
@@ -16,6 +16,20 @@ export const Counter = () => {
     setCounter(0);
     setStep(1);
   };
+
+  // const calcValue = () => {
+  //   console.log('Calc start');
+  //   for (let i = 0; i < 1000_000_000; i++) {}
+  //   console.log('Calc end');
+  //   return 2 + 2;
+  // };
+  // const result = calcValue();
+  const result = useMemo(() => {
+    console.log('Calc start');
+    for (let i = 0; i < 1000_000_000; i++) {}
+    console.log('Calc end');
+    return testValue * testValue;
+  }, [testValue]);
 
   return (
     <div className={s.flexContainer}>
@@ -38,8 +52,8 @@ export const Counter = () => {
             plus
           </button>
         </div>
-        <h3>Введіть повідомлення:</h3>
-        <input onChange={e => setTestValue(e.target.value)} />
+        <h3>Result:{result}</h3>
+        <button onClick={() => setTestValue(prev => prev + 1)}>Click</button>
       </div>
     </div>
   );
