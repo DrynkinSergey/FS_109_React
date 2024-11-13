@@ -1,20 +1,19 @@
-import { createContext } from 'react';
-import ContextExample from './ContextExample/ContextExample';
+import { useContext } from 'react';
 import { Counter } from './Counter/Counter';
-import ForwardRef from './ForwardRef/ForwardRef';
 import Header from './Header/Header';
-
-export const myContext = createContext();
+import { authContext } from '../context/AuthProvider';
+import Form from './Form/Form';
 
 const App = () => {
+  const { username } = useContext(authContext);
+
+  if (!username) {
+    return <Form />;
+  }
   return (
     <div>
       <Header />
-      {/* <Counter /> */}
-      <myContext.Provider value={{ model: 'RS 6', owner: 'Oleh' }}>
-        <ContextExample auto='Audi' />
-      </myContext.Provider>
-      {/* <ForwardRef /> */}
+      <Counter />
     </div>
   );
 };
