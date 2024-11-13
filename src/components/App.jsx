@@ -1,5 +1,6 @@
 import ContextExample from './ContextExample/ContextExample';
 import { Counter } from './Counter/Counter';
+import ForwardRef from './ForwardRef/ForwardRef';
 import Header from './Header/Header';
 
 const App = () => {
@@ -8,6 +9,7 @@ const App = () => {
       <Header />
       <Counter />
       <ContextExample />
+      {/* <ForwardRef /> */}
     </div>
   );
 };

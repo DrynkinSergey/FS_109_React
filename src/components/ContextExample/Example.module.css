@@ -2,16 +2,19 @@
   background-color: lightblue;
   display: flex;
   padding: 30px;
+  gap:15px;
 }
 .two{
   background-color: lightcoral;
   display: flex;
+  gap:15px;
   padding: 30px;
 }
 
 .three{
   background-color: lightgreen;
   display: flex;
-  padding: 30px;
+  gap:15px;
+  padding: 45px;
   flex-direction: column;
 }
