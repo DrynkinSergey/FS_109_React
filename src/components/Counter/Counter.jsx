@@ -1,7 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import s from './Counter.module.css';
+import Modal from '../Modal/Modal';
+import { useToggle } from '../../hooks/useToggle';
 
 export const Counter = () => {
+  const { isOpen, openModal, closeModal } = useToggle();
+
   const [counter, setCounter] = useState(0);
   const [step, setStep] = useState(1);
   const [testValue, setTestValue] = useState(1);
@@ -69,6 +73,8 @@ export const Counter = () => {
         <button onClick={() => setTestValue(prev => prev + 1)}>Click</button>
         <input ref={fileRef} style={{ visibility: 'hidden' }} type='file' /> <button onClick={() => fileRef.current.click()}>Обрати файл</button>
         <button onClick={() => renderCount.current++}>Render count: {renderCount.current}</button>
+        <button onClick={openModal}>Open</button>
+        {isOpen && <Modal onClose={closeModal}>Lorem ipsum dolor sit amet consectetur adipisicing elit.</Modal>}
       </div>
     </div>
   );

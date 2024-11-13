@@ -17,18 +17,10 @@ const Modal = ({ children, title = 'Default modal', onClose }) => {
       }
     };
     document.addEventListener('keydown', handleKeyDown);
-    const intervalId = setInterval(() => {
-      console.log(new Date().toLocaleTimeString());
-    }, 1000);
-    const timeoutId = setTimeout(() => {
-      console.log('Hello!🔥');
-    }, 3000);
+
     // cleanUp
 
     return () => {
-      console.log('Мене закрили!');
-      clearInterval(intervalId);
-      clearTimeout(timeoutId);
       document.removeEventListener('keydown', handleKeyDown);
     };
   }, [onClose]);
