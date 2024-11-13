@@ -1,10 +1,23 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import s from './Counter.module.css';
 
 export const Counter = () => {
   const [counter, setCounter] = useState(0);
   const [step, setStep] = useState(1);
   const [testValue, setTestValue] = useState(1);
+  const refBtn = useRef();
+  const fileRef = useRef();
+  useEffect(() => {
+    console.log(refBtn);
+    // setInterval(() => {
+    //   refBtn.current.click();
+    // }, 1000);
+  }, []);
+
+  const renderCount = useRef(0);
+  useEffect(() => {
+    console.log(renderCount.current++);
+  });
 
   const handlePlusClick = () => {
     setCounter(prev => prev + step);
@@ -48,12 +61,14 @@ export const Counter = () => {
           <button className='btn' onClick={handleReset}>
             reset
           </button>
-          <button className='btn' onClick={handlePlusClick}>
+          <button id='btn' ref={refBtn} className='btn' onClick={handlePlusClick}>
             plus
           </button>
         </div>
         <h3>Result:{result}</h3>
         <button onClick={() => setTestValue(prev => prev + 1)}>Click</button>
+        <input ref={fileRef} style={{ visibility: 'hidden' }} type='file' /> <button onClick={() => fileRef.current.click()}>Обрати файл</button>
+        <button onClick={() => renderCount.current++}>Render count: {renderCount.current}</button>
       </div>
     </div>
   );
