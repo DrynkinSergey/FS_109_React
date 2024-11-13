@@ -1,14 +1,11 @@
-# Заняття 7 - Http
+# Заняття 8 - Hooks
 
-- Http + Axios
-  - https://hn.algolia.com/api/v1/search
-  - Запит при монтуванні
-  - Оголошення функції у еффекті
-  - Обробка даних запиту
-  - Відображення даних
-  - Поділ відповідальності
-- Пошук через форму
-- Індикатор завантаження
-- Обробка помилок
-- Пагінація (load more)
-- Бібліотека [React Hot Toast](https://react-hot-toast.com/)
+- useMemo
+- useRef
+  - memo result
+  - count of renders
+- useContext
+  - context base logic
+  - auth provider
+- customHooks - useToggle
+- Передача стану та сеттера через контекст

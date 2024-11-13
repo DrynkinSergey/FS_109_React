@@ -1,0 +1,17 @@
+.one{
+  background-color: lightblue;
+  display: flex;
+  padding: 30px;
+}
+.two{
+  background-color: lightcoral;
+  display: flex;
+  padding: 30px;
+}
+
+.three{
+  background-color: lightgreen;
+  display: flex;
+  padding: 30px;
+  flex-direction: column;
+}
