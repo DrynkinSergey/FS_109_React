@@ -1,10 +1,10 @@
 import ChildTwo from './ChildTwo';
 import s from './Example.module.css';
-const ChildOne = () => {
+const ChildOne = ({ auto }) => {
   return (
     <div className={s.one}>
       <h2>Child One</h2>
-      <ChildTwo />
+      <ChildTwo auto={auto} />
     </div>
   );
 };

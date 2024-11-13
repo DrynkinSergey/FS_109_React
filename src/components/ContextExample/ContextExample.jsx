@@ -1,10 +1,10 @@
 import ChildOne from './ChildOne';
 
-const ContextExample = () => {
+const ContextExample = ({ auto }) => {
   return (
     <div>
       <h2>Component Parent</h2>
-      <ChildOne />
+      <ChildOne auto={auto} />
     </div>
   );
 };
