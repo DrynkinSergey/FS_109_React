@@ -18,6 +18,7 @@ const Users = () => {
       <ul className='users'>
         {users.map(user => (
           <li key={user.id}>
+            {/* https://localhost/users/7 */}
             <Link to={user.id.toString()}>
               <p>
                 {user.firstName} &nbsp;
