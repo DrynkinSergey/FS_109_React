@@ -10,25 +10,10 @@ createRoot(document.getElementById('root')).render(
       <App />
     </AuthProvider>
     <Toaster
-      position='top-center'
+      position='top-right'
       reverseOrder={false}
       toastOptions={{
-        // Define default options
-        className: '',
         duration: 2000,
-        style: {
-          background: '#363636',
-          color: '#fff',
-        },
-
-        // Default options for specific types
-        success: {
-          duration: 1000,
-          theme: {
-            primary: 'green',
-            secondary: 'black',
-          },
-        },
       }}
     />
   </>
