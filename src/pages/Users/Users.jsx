@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { fetchUsers } from '../../services/api';
+import { Link } from 'react-router-dom';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
@@ -17,10 +18,12 @@ const Users = () => {
       <ul className='users'>
         {users.map(user => (
           <li key={user.id}>
-            <p>
-              {user.firstName} &nbsp;
-              {user.lastName}
-            </p>
+            <Link to={user.id.toString()}>
+              <p>
+                {user.firstName} &nbsp;
+                {user.lastName}
+              </p>
+            </Link>
           </li>
         ))}
       </ul>
