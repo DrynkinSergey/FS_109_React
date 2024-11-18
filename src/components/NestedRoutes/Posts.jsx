@@ -4,7 +4,9 @@ import { fetchPostsByUserId } from '../../services/api';
 
 const Posts = () => {
   const { userId } = useParams();
-
+  // https://localhost/users/:userId/posts
+  // userID = 7
+  // https://localhost/users/7/posts
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
