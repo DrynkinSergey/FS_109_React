@@ -1,21 +1,12 @@
-# Заняття 2 - Стилізація
+# Заняття 9 - Routing
 
-- Трішки про вбудовані стилі
-  - Проблема маштабування, підтримки
-- Трішки про ванільний CSS
-  - Файл стилів
-  - Імпорт стилів
-  - Проблема глобальної області видимості
-- Структура папок та файлів
-  - Папка компонента
-  - Файл компонента
-  - Файл стилів
-  - Іменування
-- CSS-модулі
-  - Використання
-  - Композиція класів з бібліотекою [clsx](https://www.npmjs.com/package/clsx)
-- Нормалізація стилів з [modern-normalize](https://www.npmjs.com/package/modern-normalize)
-- Імпорт локальних зображень (зображення у папці `assets`)
-- Бібліотека [React Icons](https://react-icons.github.io/react-icons/)
-- Vercel деплой
-- props.children
+- Маршрутизація в SPA
+  - Один `index.html`
+  - `react-router-dom`
+- Компонент `BrowserRouter`
+- Компоненти `Link` `NavLink`
+- Компоненти `Route` `Routes`
+- Page 404
+- Динаміка з `useParams`
+- Вкладені маршрути `Outlet`
+- Deploy to vercel
