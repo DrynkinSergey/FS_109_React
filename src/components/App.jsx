@@ -23,7 +23,7 @@ const UserDetails = lazy(() => import('../pages/UserDetails/UserDetails'));
 
 const App = () => {
   const MY_KEY = import.meta.env.VITE_API_KEY;
-  console.log(MY_KEY);
+  console.log(MY_KEY, 'key');
   return (
     <div>
       <Header />
