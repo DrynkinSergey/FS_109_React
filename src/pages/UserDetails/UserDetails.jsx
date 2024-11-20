@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import { Link, Outlet, useLocation, useParams } from 'react-router-dom';
 import { fetchUserById } from '../../services/api';
 
@@ -32,7 +32,9 @@ const UserDetails = () => {
           <Link to='info'>Show info</Link>
           <Link to='posts'>Show posts</Link>
         </nav>
-        <Outlet />
+        <Suspense fallback={<h2>Loading second suspense</h2>}>
+          <Outlet />
+        </Suspense>
       </div>
     </div>
   );

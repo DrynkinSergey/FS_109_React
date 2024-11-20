@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 
 const About = () => {
@@ -18,7 +18,9 @@ const About = () => {
         <NavLink to='company'>Company</NavLink>
       </nav>
       <div className='outlet'>
-        <Outlet />
+        <Suspense fallback={<h2>Loading about suspense</h2>}>
+          <Outlet />
+        </Suspense>
       </div>
     </div>
   );
