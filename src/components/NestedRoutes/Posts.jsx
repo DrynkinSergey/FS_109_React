@@ -4,11 +4,7 @@ import { fetchPostsByUserId } from '../../services/api';
 
 const Posts = () => {
   const { userId } = useParams();
-  // https://localhost/users/:userId/posts
-  // userID = 7
-  // https://localhost/users/7/posts
-  const [posts, setPosts] = useState([]);
-
+  const [posts, setPosts] = useState(null);
   useEffect(() => {
     const getData = async () => {
       const data = await fetchPostsByUserId(userId);
@@ -20,7 +16,8 @@ const Posts = () => {
     <div>
       <h2>Posts</h2>
       <ul>
-        {posts.map(post => (
+        {posts && !posts.length && <h2>User has not any posts... 😥</h2>}
+        {posts?.map(post => (
           <li key={post.id}>{post.title}</li>
         ))}
       </ul>
