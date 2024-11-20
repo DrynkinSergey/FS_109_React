@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { Link, Outlet, useNavigate, useParams } from 'react-router-dom';
 import { fetchUserById } from '../../services/api';
 
 const UserDetails = () => {
   const { userId } = useParams();
-
+  const navigate = useNavigate();
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -21,6 +21,8 @@ const UserDetails = () => {
 
   return (
     <div>
+      {/* <Link>Go back</Link> */}
+      <button onClick={() => navigate(-1)}>Go back</button>
       <img src={user.image} />
       <h2>
         {user.firstName} {user.lastName}

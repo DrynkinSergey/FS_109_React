@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import { fetchUsers } from '../../services/api';
-import { Link } from 'react-router-dom';
+import { Link, useSearchParams } from 'react-router-dom';
 import SearchBar from '../../components/SearchBar/SearchBar';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-  const [query, setQuery] = useState('');
+
+  const [searchParams, setSearchParams] = useSearchParams();
   useEffect(() => {
     const getData = async () => {
       const data = await fetchUsers();
@@ -14,11 +15,14 @@ const Users = () => {
     getData();
   }, []);
 
+  const query = searchParams.get('query') ?? '';
   const filteredData = users.filter(user => user.firstName.toLowerCase().includes(query.toLowerCase()));
 
   const handleSetQuery = newValue => {
-    setQuery(newValue);
+    searchParams.set('query', newValue);
+    setSearchParams(searchParams);
   };
+
   return (
     <div>
       <h1>Users</h1>
