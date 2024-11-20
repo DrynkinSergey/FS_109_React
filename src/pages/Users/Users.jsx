@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
 import { fetchUsers } from '../../services/api';
-import { Link, useSearchParams } from 'react-router-dom';
+import { Link, useLocation, useSearchParams } from 'react-router-dom';
 import SearchBar from '../../components/SearchBar/SearchBar';
 
 const Users = () => {
   const [users, setUsers] = useState([]);
-
   const [searchParams, setSearchParams] = useSearchParams();
+  const location = useLocation();
+  console.log(location);
+
   useEffect(() => {
     const getData = async () => {
       const data = await fetchUsers();
@@ -31,7 +33,7 @@ const Users = () => {
         {filteredData.map(user => (
           <li key={user.id}>
             {/* https://localhost/users/7 */}
-            <Link to={user.id.toString()}>
+            <Link to={user.id.toString()} state={location}>
               <p>
                 {user.firstName} &nbsp;
                 {user.lastName}
