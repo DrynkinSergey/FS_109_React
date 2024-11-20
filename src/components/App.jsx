@@ -22,6 +22,8 @@ const Users = lazy(() => import('../pages/Users/Users'));
 const UserDetails = lazy(() => import('../pages/UserDetails/UserDetails'));
 
 const App = () => {
+  const MY_KEY = import.meta.env.VITE_API_KEY;
+  console.log(MY_KEY);
   return (
     <div>
       <Header />
