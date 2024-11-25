@@ -1,6 +1,9 @@
+import { useSelector } from 'react-redux';
 import s from './Counter.module.css';
 
 export const Counter = () => {
+  const counter = useSelector(state => state.counter.counter);
+
   const handlePlusClick = () => {};
   const handleMinusClick = () => {};
   const handleResetClick = () => {};
@@ -8,7 +11,7 @@ export const Counter = () => {
   return (
     <div className={s.flexContainer}>
       <div className={s.wrapper}>
-        <h1>{1}</h1>
+        <h1>{counter}</h1>
         <input value={1} onChange={handleChangeStep} />
         <div className={s.flex}>
           <button className='btn' onClick={handleMinusClick}>
