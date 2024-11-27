@@ -1,10 +1,20 @@
 import { Field, Form, Formik } from 'formik';
 import s from './TodoList.module.css';
+import { useDispatch } from 'react-redux';
+import { addTodo } from '../../redux/todoSlice';
+import { nanoid } from '@reduxjs/toolkit';
 
 export const AddForm = () => {
   const initialValues = { todo: '' };
-
-  const onSubmit = (values, options) => {};
+  const dispatch = useDispatch();
+  const onSubmit = (values, options) => {
+    const newTodo = {
+      id: nanoid(),
+      todo: values.todo,
+      completed: false,
+    };
+    dispatch(addTodo(newTodo));
+  };
 
   return (
     <div className={s.addFormWrapper}>

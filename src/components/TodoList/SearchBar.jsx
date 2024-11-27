@@ -1,8 +1,11 @@
+import { useDispatch } from 'react-redux';
 import s from './TodoList.module.css';
+import { changeFilter } from '../../redux/todoSlice';
 export const SearchBar = () => {
+  const dispatch = useDispatch();
   return (
     <div className={s.wrapperSearch}>
-      <input type='text' placeholder='Search...' onChange={e => {}} />
+      <input type='text' placeholder='Search...' onChange={e => dispatch(changeFilter(e.target.value))} />
     </div>
   );
 };
