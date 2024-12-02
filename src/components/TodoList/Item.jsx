@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import s from './TodoList.module.css';
-import { removeTodo, toggleTodo } from '../../redux/todoSlice';
+import { toggleTodo } from '../../redux/todoSlice';
 import { deleteTodo, editTodo } from '../../redux/operations';
 const Item = ({ completed, todo, id }) => {
   const dispatch = useDispatch();
