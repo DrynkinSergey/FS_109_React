@@ -7,8 +7,10 @@ const Item = ({ completed, todo, id }) => {
     <li className={s.item}>
       <input type='checkbox' checked={completed} onChange={() => dispatch(toggleTodo(id))} />
       <p>{todo}</p>
-      <button onClick={() => dispatch(editTodo({ id, todo: prompt('Enter new value: ') ?? todo }))}>Edit</button>
-      <button onClick={() => dispatch(removeTodo(id))}>Delete</button>
+      <div>
+        <button onClick={() => dispatch(editTodo({ id, todo: prompt('Enter new value: ') ?? todo }))}>Edit</button>
+        <button onClick={() => dispatch(removeTodo(id))}>Delete</button>
+      </div>
     </li>
   );
 };
