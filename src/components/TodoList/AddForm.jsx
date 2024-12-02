@@ -1,8 +1,8 @@
 import { Field, Form, Formik } from 'formik';
 import s from './TodoList.module.css';
 import { useDispatch } from 'react-redux';
-import { addTodo } from '../../redux/todoSlice';
 import { nanoid } from '@reduxjs/toolkit';
+import { addTodo } from '../../redux/operations';
 
 export const AddForm = () => {
   const initialValues = { todo: '' };

@@ -1,10 +1,11 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { deleteTodo, fetchTodos } from './operations';
+import { createSlice, isAnyOf } from '@reduxjs/toolkit';
+import { deleteTodo, fetchTodos, addTodo, editTodo } from './operations';
 
 const initialState = {
   items: [{ id: 123, todo: 'Вивчити React!', completed: true }],
   filter: '',
   isLoading: false,
+  isError: false,
 };
 
 const slice = createSlice({
@@ -41,11 +42,29 @@ const slice = createSlice({
       .addCase(fetchTodos.fulfilled, (state, action) => {
         state.items = action.payload;
       })
-      .addCase(fetchTodos.pending, (state, action) => {
-        state.isLoading = true;
-      })
+
       .addCase(deleteTodo.fulfilled, (state, action) => {
         state.items = state.items.filter(item => item.id !== action.payload);
+      })
+      .addCase(addTodo.fulfilled, (state, action) => {
+        state.items.push(action.payload);
+      })
+      .addCase(editTodo.fulfilled, (state, action) => {
+        const item = state.items.find(item => item.id === action.payload.id);
+        item.todo = action.payload.todo;
+      })
+
+      .addMatcher(isAnyOf(addTodo.pending, editTodo.pending, deleteTodo.pending, fetchTodos.pending), (state, action) => {
+        state.isError = false;
+        state.isLoading = true;
+      })
+
+      .addMatcher(isAnyOf(addTodo.rejected, editTodo.rejected, deleteTodo.rejected, fetchTodos.rejected), (state, action) => {
+        state.isLoading = false;
+        state.isError = true;
+      })
+      .addMatcher(isAnyOf(addTodo.fulfilled, editTodo.fulfilled, deleteTodo.fulfilled, fetchTodos.fulfilled), (state, action) => {
+        state.isLoading = false;
       });
   },
 });
@@ -53,6 +72,8 @@ const slice = createSlice({
 // selectors
 export const selectTodos = state => state.todos.items;
 export const selectFilter = state => state.todos.filter;
+export const selectIsError = state => state.todos.isError;
+export const selectIsLoading = state => state.todos.isLoading;
 
-export const { removeTodo, addTodo, changeFilter, toggleTodo, editTodo } = slice.actions;
+export const { removeTodo, changeFilter, toggleTodo } = slice.actions;
 export const todoReducer = slice.reducer;
