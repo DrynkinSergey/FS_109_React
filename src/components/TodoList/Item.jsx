@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import s from './TodoList.module.css';
 import { editTodo, removeTodo, toggleTodo } from '../../redux/todoSlice';
+import { deleteTodo } from '../../redux/operations';
 const Item = ({ completed, todo, id }) => {
   const dispatch = useDispatch();
   return (
@@ -9,7 +10,7 @@ const Item = ({ completed, todo, id }) => {
       <p>{todo}</p>
       <div>
         <button onClick={() => dispatch(editTodo({ id, todo: prompt('Enter new value: ') ?? todo }))}>Edit</button>
-        <button onClick={() => dispatch(removeTodo(id))}>Delete</button>
+        <button onClick={() => dispatch(deleteTodo(id))}>Delete</button>
       </div>
     </li>
   );

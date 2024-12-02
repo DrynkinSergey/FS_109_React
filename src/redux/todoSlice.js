@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchTodos } from './operations';
+import { deleteTodo, fetchTodos } from './operations';
 
 const initialState = {
   items: [{ id: 123, todo: 'Вивчити React!', completed: true }],
@@ -43,6 +43,9 @@ const slice = createSlice({
       })
       .addCase(fetchTodos.pending, (state, action) => {
         state.isLoading = true;
+      })
+      .addCase(deleteTodo.fulfilled, (state, action) => {
+        state.items = state.items.filter(item => item.id !== action.payload);
       });
   },
 });
