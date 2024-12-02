@@ -1,8 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { fetchTodos } from './operations';
 
 const initialState = {
   items: [{ id: 123, todo: 'Вивчити React!', completed: true }],
   filter: '',
+  isLoading: false,
 };
 
 const slice = createSlice({
@@ -33,6 +35,15 @@ const slice = createSlice({
       // const itemIndex = state.items.findIndex(item => item.id == action.payload);
       // state.items[itemIndex].completed = !state.items[itemIndex].completed;
     },
+  },
+  extraReducers: builder => {
+    builder
+      .addCase(fetchTodos.fulfilled, (state, action) => {
+        state.items = action.payload;
+      })
+      .addCase(fetchTodos.pending, (state, action) => {
+        state.isLoading = true;
+      });
   },
 });
 
