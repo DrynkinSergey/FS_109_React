@@ -1,15 +1,14 @@
 import { useSelector } from 'react-redux';
 import Item from './Item';
 import s from './TodoList.module.css';
-import { selectFilter, selectTodos } from '../../redux/todoSlice';
+import { selectFilteredTasks, selectFilteredTasksMemo } from '../../redux/selectors';
 
 export const List = () => {
-  const todos = useSelector(selectTodos);
-  const filter = useSelector(selectFilter);
-  const filteredData = todos.filter(item => item.todo.toLowerCase().includes(filter.toLowerCase()));
+  const todos = useSelector(selectFilteredTasksMemo);
+
   return (
     <ul className={s.list}>
-      {filteredData.map(item => (
+      {todos.map(item => (
         <Item {...item} key={item.id} />
       ))}
     </ul>

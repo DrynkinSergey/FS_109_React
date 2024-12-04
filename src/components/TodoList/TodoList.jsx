@@ -5,11 +5,13 @@ import { SearchBar } from './SearchBar';
 import s from './TodoList.module.css';
 import { fetchTodos } from '../../redux/operations';
 import { useEffect } from 'react';
-import { selectIsLoading } from '../../redux/todoSlice';
+
 import Filter from './Filter';
+import { selectIsLoading, selectUncompletedTodos, selectUncompletedTodosMemo } from '../../redux/selectors';
 export const TodoList = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectIsLoading);
+  const uncompletedTodos = useSelector(selectUncompletedTodosMemo);
   useEffect(() => {
     dispatch(fetchTodos());
   }, [dispatch]);
@@ -19,6 +21,7 @@ export const TodoList = () => {
       <AddForm />
       <SearchBar />
       <Filter />
+      <h3>Uncompleted Tasks: {uncompletedTodos}</h3>
       {isLoading && <h2>Loading...</h2>}
       <List />
     </div>
