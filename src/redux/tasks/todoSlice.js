@@ -1,5 +1,6 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { deleteTodo, fetchTodos, addTodo, editTodo, toggleTodo } from './operations';
+import { logout } from '../auth/operations';
 
 const initialState = {
   items: [],
@@ -25,7 +26,9 @@ const slice = createSlice({
       .addCase(fetchTodos.fulfilled, (state, { payload }) => {
         state.items = payload;
       })
-
+      .addCase(logout.fulfilled, () => {
+        return initialState;
+      })
       .addCase(deleteTodo.fulfilled, (state, { payload }) => {
         state.items = state.items.filter(item => item.id !== payload);
       })

@@ -1,11 +1,9 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import axios from 'axios';
-
-axios.defaults.baseURL = 'https://674df387635bad45618d4fe4.mockapi.io';
+import { goitApi } from '../auth/operations';
 
 export const fetchTodos = createAsyncThunk('todos/fetchAll', async (_, thunkAPI) => {
   try {
-    const response = await axios.get('/todos');
+    const response = await goitApi.get('/tasks');
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -14,7 +12,7 @@ export const fetchTodos = createAsyncThunk('todos/fetchAll', async (_, thunkAPI)
 
 export const deleteTodo = createAsyncThunk('todos/deleteTodo', async (id, thunkAPI) => {
   try {
-    await axios.delete(`/todos/${id}`);
+    await goitApi.delete(`/tasks/${id}`);
     return id;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -23,7 +21,7 @@ export const deleteTodo = createAsyncThunk('todos/deleteTodo', async (id, thunkA
 
 export const addTodo = createAsyncThunk('todos/addTodo', async (body, thunkAPI) => {
   try {
-    const response = await axios.post(`/todos`, body);
+    const response = await goitApi.post(`/tasks`, body);
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -32,7 +30,7 @@ export const addTodo = createAsyncThunk('todos/addTodo', async (body, thunkAPI) 
 
 export const editTodo = createAsyncThunk('todos/editTodo', async (body, thunkAPI) => {
   try {
-    const response = await axios.put(`/todos/${body.id}`, body);
+    const response = await goitApi.patch(`/tasks/${body.id}`, body);
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
@@ -40,7 +38,7 @@ export const editTodo = createAsyncThunk('todos/editTodo', async (body, thunkAPI
 });
 export const toggleTodo = createAsyncThunk('todos/toggleTodo', async (body, thunkAPI) => {
   try {
-    const response = await axios.put(`/todos/${body.id}`, body);
+    const response = await goitApi.patch(`/tasks/${body.id}`, body);
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
