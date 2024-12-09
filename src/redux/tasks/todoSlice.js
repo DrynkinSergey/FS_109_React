@@ -2,7 +2,7 @@ import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 import { deleteTodo, fetchTodos, addTodo, editTodo, toggleTodo } from './operations';
 
 const initialState = {
-  items: [{ id: 123, todo: 'Вивчити React!', completed: true }],
+  items: [],
   filter: '',
   visibilityFilter: 'all',
   isLoading: false,

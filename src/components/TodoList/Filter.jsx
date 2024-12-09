@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
 import s from './TodoList.module.css';
-import { changeVisibilityFilter } from '../../redux/todoSlice';
+import { changeVisibilityFilter } from '../../redux/tasks/todoSlice';
 const Filter = () => {
   const dispatch = useDispatch();
   return (
