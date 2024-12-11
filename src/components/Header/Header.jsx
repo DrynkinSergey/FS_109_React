@@ -22,6 +22,9 @@ const Header = () => {
         <NavLink className={buildLinkClass} to='/tasks'>
           Tasks
         </NavLink>
+        <NavLink className={buildLinkClass} to='/login'>
+          Login
+        </NavLink>
         {!isLoggedIn && (
           <>
             <NavLink className={buildLinkClass} to='/login'>

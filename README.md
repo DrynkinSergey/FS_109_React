@@ -5,8 +5,8 @@
 - Додати збереження токену у localStorage за допомогою Redux Persist
 - Додати операцію `refreshUser`
 - Використати операцію `refreshUser` при монтуванні `App`
-- Додати селектор стану `isRefreshing`
 - Додати у слайс `auth` стан `isRefreshing`
+- Додати селектор стану `isRefreshing`
 - Використати стан `isRefreshing` у `App`
 
 ## Редіректи
